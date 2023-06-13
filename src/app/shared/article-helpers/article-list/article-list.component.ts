@@ -12,7 +12,7 @@ import { NgClass, NgForOf, NgIf } from "@angular/common";
   selector: 'app-article-list',
   templateUrl: './article-list.component.html',
   styleUrls: ['./article-list.component.css'],
-  imports: [ArticlePreviewComponent, NgForOf],
+  imports: [ArticlePreviewComponent, NgForOf, NgClass, NgIf],
   standalone: true,
 })
 export class ArticleListComponent {
@@ -53,6 +53,7 @@ export class ArticleListComponent {
       .subscribe((data) => {
         this.loading = LoadingState.LOADED;
         this.results = data.articles;
+        console.log(data.articles)
 
         // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
         this.totalPages = Array.from(
@@ -60,5 +61,10 @@ export class ArticleListComponent {
           (val, index) => index + 1
         );
       });
+  }
+
+  setPageTo(pageNumber: number) {
+    this.currentPage = pageNumber;
+    this.runQuery();
   }
 }

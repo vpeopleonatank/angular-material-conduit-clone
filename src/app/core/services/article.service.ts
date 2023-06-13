@@ -19,7 +19,6 @@ export class ArticlesService {
       // @ts-ignore
       params = params.set(key, config.filters[key]);
     });
-    console.log(config);
 
     return this.http.get<{ articles: Article[]; articlesCount: number }>(
       "/articles" + (config.type === "feed" ? "/feed" : ""),
