@@ -16,3 +16,8 @@
   color: inherit;
   cursor: pointer;
 }
+
+
+.article-preview {
+  margin-bottom: 8px;
+}

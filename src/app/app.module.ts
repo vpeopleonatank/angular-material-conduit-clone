@@ -5,7 +5,9 @@ import { HeaderComponent } from './core/layout/header.component';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { ApiInterceptor } from './core/auth/api.interceptor';
+import { ApiInterceptor } from './core/interceptors/api.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 
@@ -17,6 +19,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
     FooterComponent,
     AppRoutingModule,
     HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: ApiInterceptor, multi: true }

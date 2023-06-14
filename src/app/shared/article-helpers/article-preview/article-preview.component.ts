@@ -7,7 +7,8 @@ import { NgForOf, NgIf, DatePipe } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { FavoriteButtonComponent } from '../../buttons/favorite-button.component';
-import {MatChipsModule} from '@angular/material/chips';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
   selector: 'app-article-preview',
@@ -23,6 +24,7 @@ import {MatChipsModule} from '@angular/material/chips';
     DatePipe,
     FavoriteButtonComponent,
     MatChipsModule,
+    MatDividerModule
   ],
   standalone: true,
 })
