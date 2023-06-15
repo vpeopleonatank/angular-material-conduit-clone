@@ -35,5 +35,8 @@ export class ShowAuthedDirective implements OnInit {
 
   @Input() set appShowAuthed(condition: boolean) {
     this.condition = condition;
+    this.userService.currentUser.subscribe((user) => {
+      console.log(user);
+    });
   }
 }

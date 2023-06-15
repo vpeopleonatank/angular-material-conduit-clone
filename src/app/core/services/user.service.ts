@@ -41,20 +41,20 @@ export class UserService {
       .pipe(tap(({ user }) => this.setAuth(user)));
   }
 
-  // logout(): void {
-  //   this.purgeAuth();
-  //   void this.router.navigate(["/"]);
-  // }
+  logout(): void {
+    this.purgeAuth();
+    void this.router.navigate(["/"]);
+  }
 
-  // getCurrentUser(): Observable<{ user: User }> {
-  //   return this.http.get<{ user: User }>("/user").pipe(
-  //     tap({
-  //       next: ({ user }) => this.setAuth(user),
-  //       error: () => this.purgeAuth(),
-  //     }),
-  //     shareReplay(1)
-  //   );
-  // }
+  getCurrentUser(): Observable<{ user: User }> {
+    return this.http.get<{ user: User }>("/user").pipe(
+      tap({
+        next: ({ user }) => this.setAuth(user),
+        error: () => this.purgeAuth(),
+      }),
+      shareReplay(1)
+    );
+  }
 
   // update(user: Partial<User>): Observable<{ user: User }> {
   //   return this.http.put<{ user: User }>("/user", { user }).pipe(
@@ -69,8 +69,8 @@ export class UserService {
     this.currentUserSubject.next(user);
   }
 
-  // purgeAuth(): void {
-  //   this.jwtService.destroyToken();
-  //   this.currentUserSubject.next(null);
-  // }
+  purgeAuth(): void {
+    this.jwtService.destroyToken();
+    this.currentUserSubject.next(null);
+  }
 }

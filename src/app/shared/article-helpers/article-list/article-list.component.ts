@@ -53,7 +53,6 @@ export class ArticleListComponent {
       .subscribe((data) => {
         this.loading = LoadingState.LOADED;
         this.results = data.articles;
-        console.log(data.articles)
 
         // Used from http://www.jstips.co/en/create-range-0...n-easily-using-one-line/
         this.totalPages = Array.from(
