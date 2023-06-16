@@ -26,7 +26,10 @@ export class ShowAuthedDirective implements OnInit {
         (isAuthenticated && this.condition) ||
         (!isAuthenticated && !this.condition)
       ) {
-        this.viewContainer.createEmbeddedView(this.templateRef);
+        // only create embededView if not existing
+        if (this.viewContainer.length === 0) {
+          this.viewContainer.createEmbeddedView(this.templateRef);
+        }
       } else {
         this.viewContainer.clear();
       }
@@ -35,8 +38,5 @@ export class ShowAuthedDirective implements OnInit {
 
   @Input() set appShowAuthed(condition: boolean) {
     this.condition = condition;
-    this.userService.currentUser.subscribe((user) => {
-      console.log(user);
-    });
   }
 }

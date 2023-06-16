@@ -32,27 +32,27 @@ const routes: Routes = [
         (m) => m.ArticleComponent
       ),
   },
-  // {
-  //   path: 'editor',
-  //   children: [
-  //     {
-  //       path: '',
-  //       loadComponent: () =>
-  //         import('./features/editor/editor.component').then(
-  //           (m) => m.EditorComponent
-  //         ),
-  //       canActivate: [() => inject(UserService).isAuthenticated],
-  //     },
-  //     {
-  //       path: ':slug',
-  //       loadComponent: () =>
-  //         import('./features/editor/editor.component').then(
-  //           (m) => m.EditorComponent
-  //         ),
-  //       canActivate: [() => inject(UserService).isAuthenticated],
-  //     },
-  //   ],
-  // },
+  {
+    path: 'editor',
+    children: [
+      {
+        path: '',
+        loadComponent: () =>
+          import('./features/editor/editor.component').then(
+            (m) => m.EditorComponent
+          ),
+        canActivate: [() => inject(UserService).isAuthenticated],
+      },
+      {
+        path: ':slug',
+        loadComponent: () =>
+          import('./features/editor/editor.component').then(
+            (m) => m.EditorComponent
+          ),
+        canActivate: [() => inject(UserService).isAuthenticated],
+      },
+    ],
+  },
 ];
 
 @NgModule({

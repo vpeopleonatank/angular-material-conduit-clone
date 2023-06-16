@@ -14,6 +14,9 @@ import { takeUntil } from 'rxjs/operators';
 import { UserService } from '../../core/services/user.service';
 import { Errors } from '../../core/models/errors.model';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatButtonModule } from '@angular/material/button';
 
 interface ArticleForm {
   title: FormControl<string>;
@@ -24,11 +27,15 @@ interface ArticleForm {
 @Component({
   selector: 'app-editor-page',
   templateUrl: './editor.component.html',
+  styleUrls: ['./editor.component.css'],
   imports: [
     ListErrorsComponent,
     ReactiveFormsModule,
     NgForOf,
     MatFormFieldModule,
+    MatInputModule,
+    MatChipsModule,
+    MatButtonModule
   ],
   standalone: true,
 })
@@ -69,8 +76,8 @@ export class EditorComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.destroy$.next();
-    this.destroy$.complete();
+  //   this.destroy$.next();
+  //   this.destroy$.complete();
   }
 
   addTag() {
