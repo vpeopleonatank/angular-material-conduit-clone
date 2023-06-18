@@ -35,7 +35,7 @@ interface ArticleForm {
     MatFormFieldModule,
     MatInputModule,
     MatChipsModule,
-    MatButtonModule
+    MatButtonModule,
   ],
   standalone: true,
 })
@@ -111,7 +111,7 @@ export class EditorComponent implements OnInit, OnDestroy {
       .subscribe({
         next: (article) => this.router.navigate(['/article/', article.slug]),
         error: (err) => {
-          this.errors = err;
+          this.errors = err.error;
           this.isSubmitting = false;
         },
       });

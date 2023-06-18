@@ -1,4 +1,5 @@
 <div class="editor-page">
+  <app-list-errors [errors]="errors"></app-list-errors>
   <form [formGroup]="articleForm" class="form-container">
     <fieldset [disabled]="isSubmitting" class="fieldset-container">
       <mat-form-field class="form-field">
